@@ -1,0 +1,24 @@
+---
+title: "Punaises"
+author: "Andrew"
+date: "26/09/2019"
+output: 
+  html_document:
+    keep_md: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r load_packages, message=FALSE}
+library(tidyverse)
+```
+
+```{r read_data}
+extermin <- read_csv("declarations-exterminations-punaises-de-lit.csv")
+
+head(extermin)
+```
+
+
