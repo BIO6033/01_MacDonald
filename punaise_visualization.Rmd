@@ -19,6 +19,12 @@ library(tidyverse)
 extermin <- read_csv("declarations-exterminations-punaises-de-lit.csv")
 
 head(extermin)
+
+extermin %>% 
+  mutate(wk = lubridate::isoweek(DATE_DECLARATION),
+         yr = lubridate::year(DATE_DECLARATION)) %>% 
+  group_by(yr, wk) %>% tally %>% 
+  ggplot(aes(x = wk, y = n, colour = yr)) + geom_point()
 ```
 
 
