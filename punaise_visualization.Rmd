@@ -24,7 +24,10 @@ extermin %>%
   mutate(wk = lubridate::isoweek(DATE_DECLARATION),
          yr = lubridate::year(DATE_DECLARATION)) %>% 
   group_by(yr, wk) %>% tally %>% 
-  ggplot(aes(x = wk, y = n, colour = yr)) + geom_point()
+  ggplot(aes(x = wk, y = n, colour = yr, group = yr)) + 
+  # geom_point() + 
+  geom_line() + 
+  scale_colour_distiller(type = "qual")
 ```
 
 

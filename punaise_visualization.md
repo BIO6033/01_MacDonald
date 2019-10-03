@@ -57,4 +57,14 @@ head(extermin)
 ## #   COORD_Y <dbl>, LONGITUDE <dbl>, LATITUDE <dbl>
 ```
 
+```r
+extermin %>% 
+  mutate(wk = lubridate::isoweek(DATE_DECLARATION),
+         yr = lubridate::year(DATE_DECLARATION)) %>% 
+  group_by(yr, wk) %>% tally %>% 
+  ggplot(aes(x = wk, y = n, colour = yr)) + geom_point()
+```
+
+![](punaise_visualization_files/figure-html/read_data-1.png)<!-- -->
+
 
